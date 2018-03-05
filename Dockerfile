@@ -1,5 +1,6 @@
 
 FROM  ubuntu:16.04
+MAINTAINER Jakub Wida
 
 #JAVA------------------
 
@@ -32,4 +33,10 @@ RUN \
   apt-get install sbt && \
   sbt sbtVersion
 
-WORKDIR /root
+
+#SLICK&PLAY-----------
+
+ADD Project root/Project
+WORKDIR root/Project
+
+RUN sbt update
